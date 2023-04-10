@@ -5,9 +5,19 @@ app = FastAPI()
 
 @app.get('/')
 def index():
-    return {'data':{'first':'Sujoy','last':'Gadha'}}
+    return {'data':'blog list'}
+
+@app.get('/blog/{id}/comments')
+def comments(id):
+    return {'data':{'1', '2'}}
 
 
-@app.get('/')
-def abt():
-    return {'data':'This is new page'}
+# dynamic routing
+@app.get('/blog/{id}')
+# fetchblogwith id = id
+def songs(id:int):
+    return {'data':id}
+
+@app.get('/blog/city/{city}')
+def location(city:str):
+    return {'data':city}
